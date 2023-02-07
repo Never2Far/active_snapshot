@@ -106,7 +106,7 @@ module ActiveSnapshot
               raise ArgumentError.new("Invalid `has_snapshot_children` definition. Must define a :records key for each child association.")
             end
 
-            delete_method = opts[:delete_method]
+            delete_method = ->(child_record){ child_record.delete }
 
             if delete_method.present? && delete_method.to_s != "default"
               if delete_method.respond_to?(:call)
