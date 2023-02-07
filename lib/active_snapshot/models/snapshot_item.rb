@@ -54,7 +54,7 @@ module ActiveSnapshot
 
       item.assign_attributes(object)
 
-      if item_type == 'Applicant'
+      if (item_type && item_type == 'Applicant') || item.is_a?(Applicant)
         item.password = 'TempPassword1!'
       end
 
