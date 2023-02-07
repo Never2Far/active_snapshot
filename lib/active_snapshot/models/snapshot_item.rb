@@ -54,6 +54,10 @@ module ActiveSnapshot
 
       item.assign_attributes(object)
 
+      if item_type == 'Applicant'
+        item.password = 'TempPassword1!'
+      end
+
       item.save!(validate: false, touch: false)
     end
 
